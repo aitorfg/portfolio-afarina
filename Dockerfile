@@ -12,4 +12,5 @@ COPY . /app
 ENV PORT=8080
 EXPOSE 8080
 
-CMD ["bash", "-lc", "reflex run --env prod --backend-host 0.0.0.0 --backend-port ${PORT}"]
+CMD ["bash", "-lc", "reflex run --env prod --single-port --backend-host 0.0.0.0 --backend-port ${PORT} --frontend-port ${PORT}"]
+
