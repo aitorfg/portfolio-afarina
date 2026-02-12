@@ -1,6 +1,13 @@
 import reflex as rx
 from aitorfg.styles import MAX_W, TEXT_STRONG, TEXT_MUTED, badge
 
+class NavState(rx.State):
+    mobile_open: bool = False
+
+    def toggle(self):
+        self.mobile_open = not self.mobile_open
+
+
 def nav_link(label: str, href: str) -> rx.Component:
     return rx.link(
         label,
@@ -39,6 +46,12 @@ def navbar() -> rx.Component:
                 nav_link("Contacto", "/contact"),
                 spacing="5",
                 display=["none", "none", "flex"],
+            ),
+            rx.icon_button(
+                rx.icon("menu"),
+                on_click=NavState.toggle,
+                display=["flex", "flex", "none"],  # 👈 solo móvil
+                variant="ghost",
             ),
             spacing="3",
             width="100%",
