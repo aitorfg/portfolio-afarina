@@ -49,6 +49,7 @@ def navbar() -> rx.Component:
                         nav_link("Sobre mí", "/about"),
                         nav_link("Proyectos", "/projects"),
                         nav_link("Contacto", "/contact"),
+                        nav_link("CV", "/cv"),
                         spacing="5",
                         display=["none", "none", "flex"],  # desktop only
                     ),
@@ -90,6 +91,7 @@ def navbar() -> rx.Component:
                     nav_link("Sobre mí", "/about", on_click=NavState.close),
                     nav_link("Proyectos", "/projects", on_click=NavState.close),
                     nav_link("Contacto", "/contact", on_click=NavState.close),
+                    nav_link("CV", "/cv", on_click=NavState.close),
                     spacing="4",
                     align="start",
                     width="100%",
