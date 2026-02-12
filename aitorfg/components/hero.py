@@ -3,12 +3,12 @@ import reflex as rx
 def hero():
     return rx.vstack(
         rx.heading(
-            "Automatizo procesos de negocio con datos, cloud e IA aplicada",
+            "Automatización de procesos de negocio con datos, cloud e IA aplicada",
             size="8",
         ),
         rx.text(
-            "Senior Data Engineer especializado en Google Cloud, "
-            "arquitecturas event-driven y automatización end-to-end.",
+            "Diseño sistemas cloud-native en Google Cloud que eliminan tareas manuales, "
+            "integran CRM/ERP y escalan operaciones reales mediante automatización e IA.",
             font_size="1.2em",
             color="gray",
         ),

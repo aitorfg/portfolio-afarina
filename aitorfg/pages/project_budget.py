@@ -9,7 +9,7 @@ def project_budget() -> rx.Component:
         rx.box(
             page_container(
                 case_study(
-                    title="Automatización de Presupuestos (Iberdrola / Concesionarios)",
+                    title="Automatización de Presupuestos",
                     subtitle="Arquitectura event-driven para generar presupuestos automáticamente y sincronizar CRM/ERP con trazabilidad.",
                     problem="La creación de presupuestos dependía de tareas manuales y reglas complejas, generando cuellos de botella, errores y baja escalabilidad.",
                     solution="Diseñé un backend en GCP orientado a eventos: el CRM dispara el flujo, se procesan reglas de cálculo y se integra con el ERP. Se usa mensajería para absorber picos y desacoplar componentes.",

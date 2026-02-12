@@ -1,4 +1,5 @@
 import reflex as rx
+from ..components.social_icon import social_icon
 from ..components.navbar import navbar
 from ..styles_theme import PAGE_BG, page_container, section_title, card, TEXT_MUTED, TEXT_STRONG, primary_button, secondary_button, badge
 
@@ -39,9 +40,12 @@ def contact() -> rx.Component:
                         ),
                         rx.divider(border_color="rgba(255,255,255,0.10)"),
 
-                        contact_item("Email", "hola@afarina.dev", "mailto:hola@afarina.dev"),
-                        contact_item("LinkedIn", "linkedin.com/in/afagon", "https://www.linkedin.com/in/afagon"),
-                        contact_item("GitHub", "github.com/aitorfg", "https://github.com/aitorfg"),
+                        rx.hstack(
+                            social_icon("/github.png", "https://github.com/aitorfg", "GitHub"),
+                            social_icon("/linkedin.png", "https://www.linkedin.com/in/afagon", "LinkedIn"),
+                            social_icon("/gmail.png", "mailto:hola@afarina.dev", "Email"),
+                            spacing="4",
+                        ),
 
                         rx.divider(border_color="rgba(255,255,255,0.10)"),
 

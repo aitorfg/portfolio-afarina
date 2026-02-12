@@ -14,10 +14,21 @@ def navbar() -> rx.Component:
     return rx.box(
         rx.hstack(
             rx.hstack(
-                rx.text("Aitor", color=TEXT_STRONG, font_weight="800", font_size="1.05em"),
-                badge("Senior Data Engineer"),
-                spacing="3",
-                align_items="center",
+                rx.link(
+                    rx.image(
+                        src="/logo_afarina.png",
+                        height="90px",
+                        width="90px",
+                    ),href="/",
+                    # rx.text(
+                    #     "Aitor Fariña",
+                    #     font_weight="800",
+                    #     font_size="1.05em",
+                    # ),
+                    # spacing="3",
+                    # align="center",
+                ),
+                
             ),
             rx.spacer(),
             rx.color_mode.button(),
