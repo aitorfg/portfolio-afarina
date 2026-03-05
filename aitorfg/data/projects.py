@@ -34,4 +34,13 @@ PROJECTS = [
         "stack": ["Python", "Selenium", "Proxies", "GCP"],
         "route": "/projects/automation-web",
     },
+    {
+    "title": "CV Analyzer",
+    "tag": "Applied AI · Automation",
+    "description": "Analiza CVs y genera un resumen estructurado con LLMs.",
+    "stack": ["Python", "GCP", "Gemini", "Reflex"],
+    "demo_url": "https://cv-analyzer.afarina.dev/",
+    "case_study_url": "/case-studies/cv-analyzer",
+    "repo_url": "https://github.com/tu_usuario/tu_repo"
+    },
 ]
