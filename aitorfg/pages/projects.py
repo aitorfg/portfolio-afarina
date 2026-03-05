@@ -17,12 +17,54 @@ def chip(text: str) -> rx.Component:
     )
 
 def project_card(p: dict) -> rx.Component:
+    actions = rx.hstack(
+        # Live demo (si existe)
+        rx.cond(
+            bool(p.get("demo_url")),
+            rx.link(
+                rx.button("Ver demo", size="2"),
+                href=p["demo_url"],
+                is_external=True,
+            ),
+        ),
+        # Case study interno (si existe)
+        rx.cond(
+            bool(p.get("case_study_url")),
+            rx.link(
+                rx.button("Ver case study", size="2", variant="soft"),
+                href=p["case_study_url"],
+            ),
+        ),
+        # GitHub (si existe)
+        rx.cond(
+            bool(p.get("repo_url")),
+            rx.link(
+                rx.button("Código", size="2", variant="soft"),
+                href=p["repo_url"],
+                is_external=True,
+            ),
+        ),
+        spacing="3",
+        flex_wrap="wrap",
+        justify="start",
+        width="100%",
+    )
+
     return card(
         rx.vstack(
             rx.hstack(
                 rx.vstack(
-                    rx.text(p["title"], color=TEXT_STRONG, font_weight="800", font_size="1.05em"),
-                    rx.text(p["tag"], color=TEXT_MUTED, font_size="0.92em"),
+                    rx.text(
+                        p["title"],
+                        color=TEXT_STRONG,
+                        font_weight="800",
+                        font_size="1.05em",
+                    ),
+                    rx.text(
+                        p["tag"],
+                        color=TEXT_MUTED,
+                        font_size="0.92em",
+                    ),
                     spacing="1",
                     align_items="flex-start",
                 ),
@@ -33,11 +75,13 @@ def project_card(p: dict) -> rx.Component:
             ),
             rx.text(p["description"], color=TEXT_MUTED, line_height="1.7"),
             rx.hstack(*[chip(s) for s in p["stack"]], spacing="2", flex_wrap="wrap"),
+            actions,
             spacing="3",
             align_items="flex-start",
         ),
         width="100%",
     )
+
 
 def projects() -> rx.Component:
     return rx.box(
