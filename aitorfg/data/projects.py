@@ -41,6 +41,6 @@ PROJECTS = [
     "stack": ["Python", "GCP", "Gemini", "Reflex"],
     "demo_url": "https://cv-analyzer.afarina.dev/",
     "case_study_url": "/case-studies/cv-analyzer",
-    "repo_url": "https://github.com/tu_usuario/tu_repo"
+    "repo_url": "https://github.com/aitorfg/cv-analyzer"
     },
 ]
