@@ -17,30 +17,31 @@ def chip(text: str) -> rx.Component:
     )
 
 def project_card(p: dict) -> rx.Component:
+    demo_url = p.get("demo_url")
+    case_study_url = p.get("case_study_url")
+    repo_url = p.get("repo_url")
+
     actions = rx.hstack(
-        # Live demo (si existe)
         rx.cond(
-            bool(p.get("demo_url")),
+            bool(demo_url),
             rx.link(
                 rx.button("Ver demo", size="2"),
-                href=p["demo_url"],
+                href=demo_url,
                 is_external=True,
             ),
         ),
-        # Case study interno (si existe)
         rx.cond(
-            bool(p.get("case_study_url")),
+            bool(case_study_url),
             rx.link(
                 rx.button("Ver case study", size="2", variant="soft"),
-                href=p["case_study_url"],
+                href=case_study_url,
             ),
         ),
-        # GitHub (si existe)
         rx.cond(
-            bool(p.get("repo_url")),
+            bool(repo_url),
             rx.link(
                 rx.button("Código", size="2", variant="soft"),
-                href=p["repo_url"],
+                href=repo_url,
                 is_external=True,
             ),
         ),
@@ -54,22 +55,14 @@ def project_card(p: dict) -> rx.Component:
         rx.vstack(
             rx.hstack(
                 rx.vstack(
-                    rx.text(
-                        p["title"],
-                        color=TEXT_STRONG,
-                        font_weight="800",
-                        font_size="1.05em",
-                    ),
-                    rx.text(
-                        p["tag"],
-                        color=TEXT_MUTED,
-                        font_size="0.92em",
-                    ),
+                    rx.text(p["title"], color=TEXT_STRONG, font_weight="800", font_size="1.05em"),
+                    rx.text(p["tag"], color=TEXT_MUTED, font_size="0.92em"),
                     spacing="1",
                     align_items="flex-start",
                 ),
                 rx.spacer(),
-                badge("Case study"),
+                # Badge solo si hay case study
+                rx.cond(bool(case_study_url), badge("Case study")),
                 width="100%",
                 align_items="flex-start",
             ),
